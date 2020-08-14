@@ -67,11 +67,6 @@ class App extends Component {
             </Link>
             <div className="navbar-nav mr-auto">
               <li className="nav-item">
-                <Link to={"/home"} className="nav-link">
-                  Home
-                </Link>
-              </li>
-              <li className="nav-item">
                 <Link to={"addTV"} className="nav-link">
                   TV Shows
                 </Link>
@@ -82,11 +77,11 @@ class App extends Component {
                   Movies
                 </Link>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Link to={"list"} className="nav-link">
                   Watchlist
                 </Link>
-              </li>
+              </li> */}
 
               {showModeratorBoard && (
                 <li className="nav-item">
@@ -107,7 +102,7 @@ class App extends Component {
               {currentUser && (
                 <li className="nav-item">
                   <Link to={"/user"} className="nav-link">
-                    User
+                    Watchlist
                   </Link>
                 </li>
               )}
@@ -150,18 +145,16 @@ class App extends Component {
               <Button variant="outline-info">Search</Button>
             </Form>
           </Navbar>
-          <div>
-            <Route path="" exact component={Welcome} />
-          </div>
+          <div>{/* <Route path="" exact component={Welcome} /> */}</div>
           <Container>
             <Row>
               <Col>
                 <Switch>
-                  <Route exact path={["/", "/home"]} component={Home} />
+                  <Route exact path={["/", "/home"]} component={Welcome} />
                   <Route exact path="/login" component={Login} />
                   <Route exact path="/register" component={Register} />
                   <Route exact path="/profile" component={Profile} />
-                  <Route path="/user" component={BoardUser} />
+                  <Route path="/user" component={Watchlist} />
                   <Route path="/mod" component={BoardModerator} />
                   <Route path="/admin" component={BoardAdmin} />
                   <Route path="/addTV" exact component={TVShow} />
